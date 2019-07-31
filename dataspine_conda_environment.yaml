@@ -12,4 +12,4 @@ dependencies:
   - xgboost==0.72.1
   - pip:
     - mnist>=0.2.1
-    - dataspine-runtime==1.0.11
+ #   - dataspine-runtime==1.0.11
