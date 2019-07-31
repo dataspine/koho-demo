@@ -13,3 +13,6 @@ dependencies:
   - pip:
     - mnist>=0.2.1
     - pipeline-runtime==1.0.11
+    - pipeline-logger
+    - pipeline-monitor
+    - xgboost
