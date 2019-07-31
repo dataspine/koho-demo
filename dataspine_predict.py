@@ -23,18 +23,14 @@ _logger_stream_handler = logging.StreamHandler()
 _logger_stream_handler.setLevel(logging.INFO)
 _logger.addHandler(_logger_stream_handler)
 
-__all__ = ['invoke']
+__all__ = ['predict']
 
 
-_labels = {
-           'name': 'mnist',
-           'tag': 'v1',
-           'runtime': 'python',
-           'chip': 'cpu',
-           'resource_type': 'model',
-           'resource_subtype': 'xgboost',
-          }
 
+_labels= {'model_runtime': os.environ['DATASPINE_MODEL_RUNTIME'],
+          'model_type': os.environ['DATASPINE_MODEL_TYPE'],
+          'model_name': os.environ['DATASPINE_MODEL_NAME'],
+          'model_tag': os.environ['DATASPINE_MODEL_TAG']}
 
 def _initialize_upon_import(file_name: str=None, train_datetime: str=None) -> xgb.core.Booster:
     """
@@ -77,7 +73,7 @@ _model = _initialize_upon_import()
 
 
 @log(labels=_labels, logger=_logger)
-def invoke(request: bytes) -> str:
+def predict(request: bytes) -> str:
     """
     Transform bytes posted to the api into an XGBoost DMatrix which is an
     internal data structure that is used by XGBoost which is optimized for
