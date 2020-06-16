@@ -74,9 +74,9 @@ RUN \
   echo "set -o allexport; source $DATASPINE_MODEL_PATH/dataspine_modelserver.properties; set +o allexport" >> ~/.bashrc
 
 # Moved these to the bottom to avoid re-doing everything above when DATASPINE_MODEL_TAG changes
-LABEL DATASPINE_MODEL_TAG=v4xg
+LABEL DATASPINE_MODEL_TAG=v1xg
 ENV \
-  DATASPINE_MODEL_TAG=v4xg
+  DATASPINE_MODEL_TAG=v1xg
 
 RUN \
   source activate $DATASPINE_MODEL_PREDICT_CONDA_ENV_NAME \
